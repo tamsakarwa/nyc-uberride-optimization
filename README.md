@@ -108,4 +108,4 @@ jupyter notebook notebooks/analysis.ipynb
 ## 👩‍💻 Author  
 **Tamsa Sandeep Karwa**  
 📍 Data Analyst | Machine Learning Enthusiast  
-🔗 [LinkedIn](https://www.linkedin.com) | [Portfolio](https://github.com/tamsakarwa)  
+🔗 [LinkedIn](https://www.linkedin.com/in/tamsakarwa)  | [Portfolio](https://github.com/tamsakarwa)  
