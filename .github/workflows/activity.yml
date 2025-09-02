@@ -1,0 +1,29 @@
+name: GitHub Activity Bot
+
+on:
+  schedule:
+    - cron: "0 12 * * *"   # runs daily at 12:00 UTC (17:30 IST)
+  workflow_dispatch:       # lets you run it manually
+
+permissions:
+  contents: write          # allow pushes from the workflow
+
+jobs:
+  activity:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Update activity log
+        run: |
+          mkdir -p .
+          echo "$(date -u +'%Y-%m-%d %H:%M:%S UTC') — keep-alive" >> activity_log.md
+
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add activity_log.md
+          git commit -m "chore: keep-alive $(date -u +'%Y-%m-%d')" || echo "No changes to commit"
+          git push
